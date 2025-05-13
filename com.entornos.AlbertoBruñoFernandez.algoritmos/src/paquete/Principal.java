@@ -4,45 +4,49 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-			Algoritmos A1 = new Algoritmos() {};
-			// Creamos array
-			int numeros[] = new int[3];
-			//int num = 0;
-			
-			//Damos valores aleatorios.
-			for(int i = 0; i < numeros.length; i++) {
-				numeros[i] = (int)(Math.random()*(10 - 2 + 1)+2);
-			}
-			
-			//Creamos array donde se guardaran los numeros de fibonacci
-			int resultadoFibonacci[] = new int[numeros.length];
-			
-			//Calcular numero de fibonacci
-			for(int i = 0; i < numeros.length; i++) {
-				resultadoFibonacci[i] = A1.fibonacci(numeros[i]);
-			}
-			
-			
-			
-			//Creamos array donde se guardaran los numeros de factorial
-			int resultadoFactorial[] = new int[numeros.length];
-			
-			//Calcular factorial
-			for(int i = 0; i < numeros.length; i++) {
-				resultadoFactorial[i] = A1.factorial(numeros[i]);
-			}
-			
-			
-			
-			//Creamos array donde se guardaran los numeros de factorial
-			boolean resultadoPrimo[] = new boolean[numeros.length];
-			
-			//Identificar primos
-			for(int i = 0; i < numeros.length; i++) {
-				resultadoPrimo[i] = A1.primo(numeros[i]);
-			}
-			
-			System.out.println("Fin de test");
+        int[] numeros = new int[3];
+        int[] resultadoFibonacci = new int[3];
+        long[] resultadoFactorial = new long[3];
+        boolean[] resultadoPrimos = new boolean[3];
+
+        Algoritmos algoritmos = new Algoritmos() {}; // Instancia de Algoritmos
+
+        // 1. Crear array "numeros" con 3 números aleatorios del 2 al 10 (sin Random)
+        for (int i = 0; i < numeros.length; i++) {
+            int numero;
+            do {
+                numero = (int) (Math.random() * 9) + 2; // Números entre 2 y 10
+                // Simple check for duplicates (not very efficient, but simple for 3 elements)
+                boolean repetido = false;
+                for (int j = 0; j < i; j++) {
+                    if (numeros[j] == numero) {
+                        repetido = true;
+                        break;
+                    }
+                }
+                if (!repetido) {
+                    break;
+                }
+            } while (true);
+            numeros[i] = numero;
+        }
+
+        // 2. Calcular Fibonacci
+        for (int i = 0; i < numeros.length; i++) {
+            resultadoFibonacci[i] = algoritmos.fibonacci(numeros[i]);
+        }
+
+        // 3. Calcular Factorial
+        for (int i = 0; i < numeros.length; i++) {
+            resultadoFactorial[i] = algoritmos.factorial(numeros[i]);
+        }
+
+        // 4. Comprobar Primos
+        for (int i = 0; i < numeros.length; i++) {
+            resultadoPrimos[i] = algoritmos.primo(numeros[i]);
+        }
+
+        // Depurar aquí (sin System.out.println)
 
 	}
 
