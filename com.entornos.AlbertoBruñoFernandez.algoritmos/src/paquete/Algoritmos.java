@@ -44,7 +44,7 @@ public abstract class  Algoritmos {
 	        if (numero == 0) {
 	            return 1;
 	        }
-	        long resultado = 1;
+	        int resultado = 1;
 	        for (int i = 1; i <= numero; i++) {
 	            resultado *= i;
 	        }
