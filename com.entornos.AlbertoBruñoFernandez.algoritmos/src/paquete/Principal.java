@@ -46,7 +46,7 @@ public class Principal {
             resultadoPrimos[i] = algoritmos.primo(numeros[i]);
         }
 
-        // Depurar aquí (sin System.out.println)
+         System.out.println("Hola");
 
 	}
 
